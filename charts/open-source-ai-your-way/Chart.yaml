@@ -3,7 +3,7 @@ apiVersion: v2
 name: open-source-ai-your-way
 description: A Helm chart to deploy a customizable RAG stack
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: 0.1.0
 
 dependencies:
@@ -16,6 +16,6 @@ dependencies:
     repository: https://cloudnative-pg.github.io/charts
     condition: cloudnative-pg.enabled
   - name: vllm
-    version: 0.1.0
+    version: 0.2.0
     repository: file://../vllm
     condition: vllm.enabled
