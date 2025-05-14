@@ -1,0 +1,49 @@
+apiVersion: v1
+entries:
+  open-source-ai-your-way:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-05-14T15:42:13.581790313Z"
+    dependencies:
+    - condition: milvus.enabled
+      name: milvus
+      repository: https://zilliztech.github.io/milvus-helm
+      version: 4.2.48
+    - condition: cloudnative-pg.enabled
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.23.2
+    - condition: vllm.enabled
+      name: vllm
+      repository: file://../vllm
+      version: 0.1.0
+    description: A Helm chart to deploy a customizable RAG stack
+    digest: e41c53f5bd8653053c273186152180290d930193f061eebe27d9ef7f786d6cb9
+    name: open-source-ai-your-way
+    type: application
+    urls:
+    - https://github.com/rhai-code/summit-lounge-chart/releases/download/open-source-ai-your-way-0.1.0/open-source-ai-your-way-0.1.0.tgz
+    version: 0.1.0
+  openwebui:
+  - apiVersion: v2
+    appVersion: 0.6.9
+    created: "2025-05-14T15:42:13.737393075Z"
+    description: A Helm chart to deploy OpenWebUI on OpenShift
+    digest: 50fafafe8bb063d3617dff389ff21c055bbfcd5f0a792a9086583d51b960bd74
+    name: openwebui
+    type: application
+    urls:
+    - https://github.com/rhai-code/summit-lounge-chart/releases/download/openwebui-0.1.0/openwebui-0.1.0.tgz
+    version: 0.1.0
+  vllm:
+  - apiVersion: v2
+    appVersion: 0.8.5.0_cu128
+    created: "2025-05-14T15:42:13.91367061Z"
+    description: A Helm chart to deploy vLLM on OpenShift
+    digest: 3dc537b4bf254172a053e4ddfa19044384931825b549962533a2cd77ae033948
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/rhai-code/summit-lounge-chart/releases/download/vllm-0.1.0/vllm-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-05-14T15:42:13.91367614Z"
