@@ -14,6 +14,22 @@ vllm:
     extraArgs:
       - --served-model-name=Qwen/Qwen3-8B
 
+vllm-embeddings:
+  enabled: true
+  deploymentStrategy:
+    type: Recreate
+  configuration:
+    hfModelDownload:
+      enabled: false
+    modelStorage:
+      type: image
+      image:
+        type: modelCar
+        reference: quay.io/jharmison/models:intfloat--multilingual-e5-large-modelcar
+    extraArgs:
+      - --served-model-name=intfloat/multilingual-e5-large
+      - --enforce-eager
+
 milvus:
   enabled: false
   cluster:

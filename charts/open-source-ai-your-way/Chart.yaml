@@ -19,3 +19,8 @@ dependencies:
     version: 0.2.0
     repository: file://../vllm
     condition: vllm.enabled
+  - name: vllm
+    alias: vllm-embeddings
+    version: 0.2.0
+    repository: file://../vllm
+    condition: vllm-embeddings.enabled
