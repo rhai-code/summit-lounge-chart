@@ -64,7 +64,8 @@ podAnnotations:
 
 podLabels: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  runAsNonRoot: true
   # fsGroup: 2000
 
 securityContext:
@@ -72,7 +73,7 @@ securityContext:
     drop:
     - ALL
   readOnlyRootFilesystem: true
-  runAsNonRoot: true
+  allowPrivilegeEscalation: false
 
 service:
   type: ClusterIP

@@ -39,6 +39,10 @@ spec:
             - /app/entrypoint.sh
           args:
             - check
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - name: modelcar-mount
               mountPath: /app
@@ -102,6 +106,10 @@ spec:
           args:
             - mount
             - {{ .Values.configuration.modelStorage.mountPath }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - name: model-storage
               mountPath: {{ .Values.configuration.modelStorage.mountPath }}
