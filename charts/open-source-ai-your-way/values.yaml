@@ -11,6 +11,8 @@ vllm:
       image:
         type: modelCar
         reference: quay.io/jharmison/models:qwen--qwen3-8b-modelcar
+    extraArgs:
+      - --served-model-name=Qwen/Qwen3-8B
 
 milvus:
   enabled: false
