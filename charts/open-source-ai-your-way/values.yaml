@@ -1,1 +1,49 @@
 ---
+vllm:
+  enabled: true
+  deploymentStrategy:
+    type: Recreate
+  configuration:
+    hfModelDownload:
+      enabled: false
+    modelStorage:
+      type: image
+      image:
+        type: modelCar
+        reference: quay.io/jharmison/models:qwen--qwen3-8b-modelcar
+
+milvus:
+  enabled: false
+  cluster:
+    enabled: false
+
+  etcd:
+    enabled: false
+
+  pulsarv3:
+    enabled: false
+
+  minio:
+    enabled: false
+    tls:
+      enabled: false
+
+  extraConfigFiles:
+    user.yaml: |+
+      etcd:
+        use:
+          embed: true
+        data:
+          dir: /var/lib/milvus/etcd
+      common:
+        storageType: local
+
+cloudnative-pg:
+  enabled: false
+  crds:
+    create: false
+  config:
+    clusterWide: false
+  containerSecurityContext:
+    runAsUser: null
+    runAsGroup: null

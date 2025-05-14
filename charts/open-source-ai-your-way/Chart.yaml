@@ -5,3 +5,17 @@ description: A Helm chart to deploy a customizable RAG stack
 type: application
 version: 0.1.0
 appVersion: 0.1.0
+
+dependencies:
+  - name: milvus
+    version: 4.2.48
+    repository: https://zilliztech.github.io/milvus-helm
+    condition: milvus.enabled
+  - name: cloudnative-pg
+    version: 0.23.2
+    repository: https://cloudnative-pg.github.io/charts
+    condition: cloudnative-pg.enabled
+  - name: vllm
+    version: 0.1.0
+    repository: file://../vllm
+    condition: vllm.enabled
