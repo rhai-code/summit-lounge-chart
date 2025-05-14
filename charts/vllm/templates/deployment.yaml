@@ -40,8 +40,6 @@ spec:
           args:
             - check
           volumeMounts:
-            - name: model-storage
-              mountPath: {{ .Values.configuration.modelStorage.mountPath }}
             - name: modelcar-mount
               mountPath: /app
       {{- end }}
@@ -129,7 +127,7 @@ spec:
         {{- else if eq .Values.configuration.modelStorage.image.type "modelCar" }}
           emptyDir: {}
         - name: modelcar-mount
-          configMapRef:
+          configMap:
             name:  {{ include "vllm.fullname" . }}-modelcar-mount
             defaultMode: 493
         {{- end }} {{/* artifact vs modelCar */}}
