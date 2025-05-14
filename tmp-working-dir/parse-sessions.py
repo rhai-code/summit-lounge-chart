@@ -68,15 +68,15 @@ class Session:
             return None
 
     @staticmethod
-    def _ljoin(l: list) -> str | None:
+    def _ljoin(l: list) -> str:
         if len(l) > 2:
             return ', '.join(l[:-1]) + ", and " + str(l[-1])
         elif len(l) == 2:
             return ' and '.join(l)
         elif len(l) == 1:
-            return l[0]
+            return l[0] or ''
         else:
-            return None
+            return ''
 
     def get(self, attr: str) -> str:
         value = getattr(self, attr)
@@ -93,7 +93,7 @@ class Session:
             ret = value.strftime()
         else:
             ret = f"<No {attr} provided>"
-        return ret
+        return " ".join(ret.split())
 
     def render(self) -> str:
         return cleandoc(f"""
@@ -114,6 +114,7 @@ class Session:
 
         Topics
         ---
+
         {self.get("topics")}
 
         Session times
@@ -139,6 +140,7 @@ class Session:
 
         Abstract
         ---
+
         {self.get("abstract").replace("\n", " ")}
         """)
 
