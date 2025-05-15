@@ -16,11 +16,15 @@ dependencies:
     repository: https://cloudnative-pg.github.io/charts
     condition: cloudnative-pg.enabled
   - name: vllm
-    version: 0.2.0
-    repository: file://../vllm
+    version: 0.2.2
+    repository: https://rhai-code.github.io/vllm
     condition: vllm.enabled
   - name: vllm
     alias: vllm-embeddings
-    version: 0.2.0
-    repository: file://../vllm
+    version: 0.2.2
+    repository: https://rhai-code.github.io/vllm
     condition: vllm-embeddings.enabled
+  - name: openwebui
+    version: 0.1.1
+    repository: https://rhai-code.github.io/openwebui
+    condition: openwebui.enabled
