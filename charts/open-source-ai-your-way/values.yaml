@@ -65,3 +65,6 @@ cloudnative-pg:
   containerSecurityContext:
     runAsUser: null
     runAsGroup: null
+
+openwebui:
+  enabled: false
