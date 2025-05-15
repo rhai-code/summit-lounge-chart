@@ -60,6 +60,8 @@ milvus:
     persistence:
       annotations:
         helm.sh/resource-policy: null
+      persistentVolumeClaim:
+        size: 5Gi
 
 cloudnative-pg:
   enabled: false
