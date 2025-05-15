@@ -56,6 +56,11 @@ milvus:
       common:
         storageType: local
 
+  standalone:
+    persistence:
+      annotations:
+        helm.sh/resource-policy: null
+
 cloudnative-pg:
   enabled: false
   crds:
