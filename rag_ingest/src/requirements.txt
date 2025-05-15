@@ -1,0 +1,7 @@
+beautifulsoup4
+langchain
+langchain-core
+langchain-milvus
+langchain-openai
+langchain-text-splitters
+requests
