@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import csv
+import sys
 
 from argparse import ArgumentParser
 from datetime import datetime
@@ -12,7 +13,7 @@ from pydantic import BaseModel
 parser = ArgumentParser(prog="csv-to-md",
                         description="Parses a Summit Session Catalog CSV and turns it into a markdown document")
 parser.add_argument('source', help='The path to the CSV file', default='session-catalog.csv')
-parser.add_argument('--output', '-o', help='The path to a folder to write markdown documents to (defaults to stdout)')
+parser.add_argument('--output', '-o', help='The path to a markdown document to write (defaults to stdout)')
 args = parser.parse_args()
 
 source = Path(args.source)
@@ -144,35 +145,22 @@ class Session:
         """)
 
 
-def private_filter(s: dict) -> bool:
-    if 'invite-only' in s.get("Abstract"):
-        return False
-    if 'exclusive event for' in s.get("Abstract"):
-        return False
-    return True
-
-
 sessions: dict[Session] = {}
 
 for session in data:
     id = session.get("Session ID")
     if id is not None:
-        if private_filter(session):
-            if sessions.get(id) is None:
-                sessions[id] = Session(session)
-            else:
-                sessions[id].add_session(session)
+        if sessions.get(id) is None:
+            sessions[id] = Session(session)
+        else:
+            sessions[id].add_session(session)
 
 if args.output is not None:
-    output = Path(args.output)
-    if output.parent.exists() and output.parent.is_dir() and not output.exists():
-        output.mkdir()
-    if output.exists() and output.is_dir():
-        for id, session in sessions.items():
-            with open(output.joinpath(f"{id}.md"), 'w') as out:
-                out.write(session.render())
-        exit(0)
+    output = open(args.output, 'w')
+else:
+    output = sys.stdout
 
 for session in sessions.values():
-    print(session.render())
-    print('')
+    output.write(session.render())
+    output.write("\n\n")
+    output.flush()
