@@ -100,3 +100,5 @@ anythingllm:
       GENERIC_OPEN_AI_EMBEDDING_API_KEY: fake
       VECTOR_DB: milvus
       MILVUS_ADDRESS: http://open-source-ai-milvus:19530
+      MILVUS_USERNAME: root
+      MILVUS_PASSWORD: Milvus
