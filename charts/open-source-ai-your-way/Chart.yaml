@@ -3,7 +3,7 @@ apiVersion: v2
 name: open-source-ai-your-way
 description: A Helm chart to deploy a customizable RAG stack
 type: application
-version: 0.2.1
+version: 0.2.2
 appVersion: 0.1.0
 
 dependencies:
@@ -29,6 +29,6 @@ dependencies:
     repository: https://rhai-code.github.io/openwebui
     condition: openwebui.enabled
   - name: anythingllm
-    version: 0.1.1
+    version: 0.1.2
     repository: https://rhai-code.github.io/anythingllm
     condition: anythingllm.enabled
