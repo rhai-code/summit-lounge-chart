@@ -3,6 +3,38 @@ entries:
   open-source-ai-your-way:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2025-05-15T20:09:09.877216194Z"
+    dependencies:
+    - condition: milvus.enabled
+      name: milvus
+      repository: https://zilliztech.github.io/milvus-helm
+      version: 4.2.48
+    - condition: cloudnative-pg.enabled
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.23.2
+    - condition: vllm.enabled
+      name: vllm
+      repository: https://rhai-code.github.io/vllm
+      version: 0.2.2
+    - alias: vllm-embeddings
+      condition: vllm-embeddings.enabled
+      name: vllm
+      repository: https://rhai-code.github.io/vllm
+      version: 0.2.2
+    - condition: openwebui.enabled
+      name: openwebui
+      repository: https://rhai-code.github.io/openwebui
+      version: 0.1.1
+    description: A Helm chart to deploy a customizable RAG stack
+    digest: bfb3cf4c6e02626e6950c5836cebded3f44c2e5d7041b63b1e2f122cd1ccea88
+    name: open-source-ai-your-way
+    type: application
+    urls:
+    - https://github.com/rhai-code/summit-lounge-chart/releases/download/open-source-ai-your-way-0.2.0/open-source-ai-your-way-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2025-05-14T23:43:18.225678322Z"
     dependencies:
     - condition: milvus.enabled
@@ -74,4 +106,4 @@ entries:
     urls:
     - https://github.com/rhai-code/summit-lounge-chart/releases/download/vllm-0.1.0/vllm-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-14T23:43:18.225702727Z"
+generated: "2025-05-15T20:09:09.877233967Z"
