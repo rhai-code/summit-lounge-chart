@@ -79,3 +79,17 @@ openwebui:
       RAG_EMBEDDING_MODEL: intfloat/multilingual-e5-large
       RAG_OPENAI_API_BASE_URL: http://open-source-ai-vllm-embeddings:8000/v1
       RAG_OPENAI_API_KEY: fake
+
+anythingllm:
+  enabled: false
+  configuration:
+    vllmEndpoint: http://open-source-ai-vllm:8000/v1
+    vllmModel: Qwen/Qwen3-8B
+    env:
+      EMBEDDING_ENGINE: generic-openai
+      EMBEDDING_MODEL_PREF: intfloat/multilingual-e5-large
+      EMBEDDING_MODEL_MAX_CHUNK_LENGTH: 512
+      EMBEDDING_BASE_PATH: http://open-source-ai-vllm-embeddings:8000/v1
+      GENERIC_OPEN_AI_EMBEDDING_API_KEY: fake
+      VECTOR_DB: milvus
+      MILVUS_ADDRESS: http://open-source-ai-milvus:19530

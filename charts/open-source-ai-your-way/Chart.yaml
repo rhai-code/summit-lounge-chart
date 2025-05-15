@@ -28,3 +28,7 @@ dependencies:
     version: 0.1.1
     repository: https://rhai-code.github.io/openwebui
     condition: openwebui.enabled
+  - name: anythingllm
+    version: 0.1.1
+    repository: https://rhai-code.github.io/anythingllm
+    condition: anythingllm.enabled
