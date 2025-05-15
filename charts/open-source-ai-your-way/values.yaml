@@ -31,7 +31,7 @@ vllm-embeddings:
       - --enforce-eager
 
 milvus:
-  enabled: false
+  enabled: true
   cluster:
     enabled: false
 
@@ -67,4 +67,15 @@ cloudnative-pg:
     runAsGroup: null
 
 openwebui:
-  enabled: false
+  enabled: true
+  configuration:
+    vllmEndpoint: http://open-source-ai-vllm:8000/v1
+    vllmModel: Qwen/Qwen3-8B
+    env:
+      VECTOR_DB: milvus
+      MILVUS_URI: http://root:Milvus@open-source-ai-milvus:19530
+      MILVUS_INDEX_TYPE: AUTOINDEX
+      RAG_EMBEDDING_ENGINE: openai
+      RAG_EMBEDDING_MODEL: intfloat/multilingual-e5-large
+      RAG_OPENAI_API_BASE_URL: http://open-source-ai-vllm-embeddings:8000/v1
+      RAG_OPENAI_API_KEY: fake
