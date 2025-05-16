@@ -95,7 +95,7 @@ anythingllm:
     env:
       EMBEDDING_ENGINE: generic-openai
       EMBEDDING_MODEL_PREF: BAAI/bge-m3
-      EMBEDDING_MODEL_MAX_CHUNK_LENGTH: 2000
+      EMBEDDING_MODEL_MAX_CHUNK_LENGTH: 8192
       EMBEDDING_BASE_PATH: http://open-source-ai-vllm-embeddings:8000/v1
       GENERIC_OPEN_AI_EMBEDDING_API_KEY: fake
       VECTOR_DB: milvus
