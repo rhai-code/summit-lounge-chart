@@ -1,0 +1,27 @@
+{{- if .Values.cloudnativePg.operand.enabled }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-database-secret
+type: kubernetes.io/basic-auth
+data:
+  username: {{ .Values.cloudnativePg.operand.credentials.user | b64enc }}
+  password: {{ .Values.cloudnativePg.operand.credentials.password | b64enc }}
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  instances: {{ .Values.cloudnativePg.operand.replicas }}
+  storage:
+    size: {{ .Values.cloudnativePg.operand.size }}
+  bootstrap:
+    initdb:
+      database: {{ .Values.cloudnativePg.operand.dbName }}
+      owner: {{ .Values.cloudnativePg.operand.credentials.user }}
+      secret:
+        name: {{ .Release.Name }}-database-secret
+      postInitSQL:
+        - ALTER USER {{ .Values.cloudnativePg.operand.credentials.user }} WITH SUPERUSER;
+{{- end }}

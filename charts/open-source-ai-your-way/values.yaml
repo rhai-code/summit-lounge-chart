@@ -63,10 +63,19 @@ milvus:
       persistentVolumeClaim:
         size: 5Gi
 
-cloudnative-pg:
+# Note: only set this to enabled if you need to install the operator!
+cloudnativePg:
   enabled: false
+  operand:
+    enabled: false # If the operator is installed, set this to true to enable using it
+    replicas: 1
+    size: 5Gi
+    dbName: opensourceai
+    credentials:
+      user: opensourceai
+      password: opensourceai
   crds:
-    create: false
+    create: true
   config:
     clusterWide: false
   containerSecurityContext:

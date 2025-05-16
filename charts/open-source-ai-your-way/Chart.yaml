@@ -12,9 +12,10 @@ dependencies:
     repository: https://zilliztech.github.io/milvus-helm
     condition: milvus.enabled
   - name: cloudnative-pg
+    alias: cloudnativePg
     version: 0.23.2
     repository: https://cloudnative-pg.github.io/charts
-    condition: cloudnative-pg.enabled
+    condition: cloudnativePg.enabled
   - name: vllm
     version: 0.2.2
     repository: https://rhai-code.github.io/vllm
