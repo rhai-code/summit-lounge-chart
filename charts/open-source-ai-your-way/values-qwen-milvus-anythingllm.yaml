@@ -10,6 +10,9 @@ openwebui:
 
 anythingllm:
   enabled: true
+  route:
+    oauth:
+      enabled: false
   configuration:
     vllmEndpoint: http://qwen-3-8b.model-serving.svc:8000/v1
     vllmModel: Qwen/Qwen3-8B-FP8
