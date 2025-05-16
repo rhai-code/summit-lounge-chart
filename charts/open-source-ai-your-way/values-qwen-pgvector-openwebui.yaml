@@ -15,6 +15,7 @@ cloudnativePg:
 openwebui:
   configuration:
     vllmEndpoint: http://qwen-3-8b.model-serving.svc:8000/v1
+    vllmModel: Qwen/Qwen3-8B-FP8
     env:
       RAG_OPENAI_API_BASE_URL: http://bge-m3.model-serving.svc:8000/v1
       VECTOR_DB: pgvector
