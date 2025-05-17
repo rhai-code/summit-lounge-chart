@@ -1,0 +1,16 @@
+---
+vllm:
+  enabled: false
+
+vllm-embeddings:
+  enabled: false
+
+openwebui:
+  route:
+    oauth:
+      enabled: false
+  configuration:
+    vllmEndpoint: http://mistral-31-24b.model-serving.svc:8000/v1
+    vllmModel: RedHatAI/Mistral-Small-3.1-24B-Instruct-2503-FP8-dynamic
+    env:
+      RAG_OPENAI_API_BASE_URL: http://bge-m3.model-serving.svc:8000/v1
