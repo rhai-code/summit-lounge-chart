@@ -1,0 +1,16 @@
+---
+vllm:
+  enabled: false
+
+vllm-embeddings:
+  enabled: false
+
+openwebui:
+  route:
+    oauth:
+      enabled: false
+  configuration:
+    vllmEndpoint: http://llama-32-3b.model-serving.svc:8000/v1
+    vllmModel: RedHatAI/Llama-3.2-3B-Instruct-FP8
+    env:
+      RAG_OPENAI_API_BASE_URL: http://bge-m3.model-serving.svc:8000/v1
