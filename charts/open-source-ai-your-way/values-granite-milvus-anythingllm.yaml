@@ -1,0 +1,20 @@
+---
+vllm:
+  enabled: false
+
+vllm-embeddings:
+  enabled: false
+
+openwebui:
+  enabled: false
+
+anythingllm:
+  enabled: true
+  route:
+    oauth:
+      enabled: false
+  configuration:
+    vllmEndpoint: http://granite-33-8b.model-serving.svc:8000/v1
+    vllmModel: ibm-granite/granite-3.3-8b-instruct
+    env:
+      EMBEDDING_BASE_PATH: http://bge-m3.model-serving.svc:8000/v1

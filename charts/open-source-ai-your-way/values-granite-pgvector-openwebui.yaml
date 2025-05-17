@@ -1,0 +1,25 @@
+---
+vllm:
+  enabled: false
+
+vllm-embeddings:
+  enabled: false
+
+milvus:
+  enabled: false
+
+cloudnativePg:
+  operand:
+    enabled: true
+
+openwebui:
+  route:
+    oauth:
+      enabled: false
+  configuration:
+    vllmEndpoint: http://granite-33-8b.model-serving.svc:8000/v1
+    vllmModel: ibm-granite/granite-3.3-8b-instruct
+    env:
+      RAG_OPENAI_API_BASE_URL: http://bge-m3.model-serving.svc:8000/v1
+      VECTOR_DB: pgvector
+      PGVECTOR_DB_URL: postgresql://opensourceai:opensourceai@open-source-ai-rw:5432/opensourceai
