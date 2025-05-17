@@ -56,6 +56,14 @@ milvus:
       common:
         storageType: local
 
+  livenessProbe:
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    failureThreshold: 5
+  readinessProbe:
+    initialDelaySeconds: 15
+    periodSeconds: 5
+    failureThreshold: 10
   standalone:
     persistence:
       annotations:
